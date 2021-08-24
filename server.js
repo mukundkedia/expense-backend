@@ -15,7 +15,7 @@ const transactions = require('./routes/transactions');
 const app = express();
 
 app.use(express.json());
-app.use(cors({origin:["https://mukundkedia.github.io/"]}))
+app.use(cors({ origin: ['https://example.com', 'https://stackoverflow.com', 'https://mukundkedia.github.io', 'http://localhost:3000'] }))
 
 if(process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));

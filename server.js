@@ -15,6 +15,10 @@ var transactions = require('./routes/transactions');
 
 var app = express();
 app.use(cors({ origin: ['https://example.com', 'https://stackoverflow.com', 'https://mukundkedia.github.io', 'http://localhost:3000'], credentials: true }))
+if (app.get('env') === 'production') {
+  app.set('trust proxy', 1) // trust first proxy
+  
+}
 app.use(express.json());
 //app.use(cors({ origin: ['https://example.com', 'https://stackoverflow.com', 'https://mukundkedia.github.io', 'http://localhost:3000'] }))
 

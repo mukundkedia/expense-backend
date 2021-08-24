@@ -4,12 +4,11 @@
   "description": "Backend for expense tracker",
   "main": "server.js",
   "scripts": {
-    
     "start": "node server.js"
   },
   "engines": {
     "node": "14.17.3"
-},
+  },
   "author": "Mukund",
   "license": "MIT",
   "dependencies": {
@@ -26,5 +25,3 @@
     "nodemon": "^2.0.2"
   }
 }
-
-

@@ -1,21 +1,22 @@
-const path = require('path');
-const express = require('express');
-const dotenv = require('dotenv');
-const colors = require('colors');
-const morgan = require('morgan');
-const cors=require('cors')
-const connectDB = require('./config/db');
+var path = require('path');
+var express = require('express');
+var dotenv = require('dotenv');
+var colors = require('colors');
+var morgan = require('morgan');
+var cors=require('cors')
+
+var connectDB = require('./config/db');
 
 dotenv.config({ path: './config/config.env' });
 
 connectDB();
 
-const transactions = require('./routes/transactions');
+var transactions = require('./routes/transactions');
 
-const app = express();
-
+var app = express();
+app.use(cors({ origin: ['https://example.com', 'https://stackoverflow.com', 'https://mukundkedia.github.io', 'http://localhost:3000'], credentials: true }))
 app.use(express.json());
-app.use(cors({ origin: ['https://example.com', 'https://stackoverflow.com', 'https://mukundkedia.github.io', 'http://localhost:3000'] }))
+//app.use(cors({ origin: ['https://example.com', 'https://stackoverflow.com', 'https://mukundkedia.github.io', 'http://localhost:3000'] }))
 
 if(process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
